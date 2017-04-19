@@ -1,0 +1,11 @@
+{% extends "createMaterial.html" %}
+{% block material %}
+	<form>
+    <input type='file' class="upl">
+    <div>
+        <img class="preview" style="max-width: 150px; max-height: 150px;">
+        <div class="size"></div>
+    </div>
+	</form>
+
+{% end %}

@@ -1,0 +1,3 @@
+{% extends "frame.html" %}
+
+{% block body %}
