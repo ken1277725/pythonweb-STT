@@ -15,8 +15,8 @@ class WavFileHandler(web.RequestHandler):
 		original_fname = file1['filename']
 		extension = os.path.splitext(original_fname)[1]
 		fname = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(8))
-		dirname = "./uploads/"
-		final_filename= dirname+fname+extension
+		dirname = "uploads"
+		final_filename= os.path.join(os.path.dirname(__file__),dirname,fname+extension)
 		output_file = open(final_filename, 'w')
 		output_file.write(file1['body'])
 		text_lists = wavSplit(final_filename)

@@ -44,4 +44,6 @@ def wavSplit(filename=''):
 		print "exporting", out_file
 		chunk.export(out_file, format="wav")
 		chunklist.append(out_file)
-	return transcribe_file(chunklist)
+	#return transcribe_file(chunklist)
+	return chunklist 
+	
