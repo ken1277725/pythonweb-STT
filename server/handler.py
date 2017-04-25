@@ -2,7 +2,7 @@ from tornado import ioloop , web , httpserver , websocket, options
 import os
 import random
 import string
-from wavsplite import wavSplit
+from wavsplite import wavSplit , transcribe_file
 static_url = os.path.join(os.path.dirname(__file__))
 
 class MainHandler(web.RequestHandler):
@@ -20,5 +20,8 @@ class WavFileHandler(web.RequestHandler):
 		output_file = open(final_filename, 'w')
 		output_file.write(file1['body'])
 		text_lists = wavSplit(final_filename)
-		print text_lists
-		self.redirect("/")
+		print (text_lists)
+		speech_test = transcribe_file(text_lists)
+		print (speech_test)
+		self.write(speech_test)
+		#self.redirect("/")
