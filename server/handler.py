@@ -9,7 +9,7 @@ static_url = os.path.join(os.path.dirname(__file__))
 
 class MainHandler(web.RequestHandler):
     def get(self):
-        self.render("static/client.html")
+        self.render("client.html")
 
 class WavFileHandler(web.RequestHandler):
 	def post(self):
