@@ -22,7 +22,7 @@ class WavFileHandler(web.RequestHandler):
 		output_file = open(final_filename, 'w')
 		output_file.write(file1['body'])
 		text_lists = wavSplit(final_filename)
-		print (text_lists)
+		print ("got" + str(len(text_lists))+ "files")
 		speech_test = transcribe_file(text_lists)
 		
 		print (speech_test)
