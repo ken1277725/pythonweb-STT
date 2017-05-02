@@ -1,4 +1,6 @@
-from tornado import ioloop , web , httpserver , websocket, options 
+from tornado import ioloop , web , httpserver , websocket, options
+#from . import uimodules
+
 import os
 import random
 import string
@@ -22,6 +24,8 @@ class WavFileHandler(web.RequestHandler):
 		text_lists = wavSplit(final_filename)
 		print (text_lists)
 		speech_test = transcribe_file(text_lists)
+		
 		print (speech_test)
-		self.write(speech_test)
+		self.render("output.html",items = speech_test)
+		#self.write(speech_test)
 		#self.redirect("/")

@@ -1,0 +1,42 @@
+<body>
+{% if len(items) > 0 %}
+
+	{% for item in items %}
+		<div>
+			 {{item}} : 
+			<br>
+			<textarea type="text" style="width:600px;height:50px;" onclick= "autogrow(this);" 
+				onkeyup="autogrow(this);">
+				{{item}}
+			</textarea>
+			<br>
+		</div> 
+		
+	{% end %}
+	<button onclick = "showtest();">finish it</button>
+	<p id = "text">
+	</p>
+	<script>
+		function autogrow(textarea){
+			var adjustedHeight=textarea.clientHeight;
+			adjustedHeight=Math.max(textarea.scrollHeight,adjustedHeight);
+			if (adjustedHeight>textarea.clientHeight){
+	    		textarea.style.height=adjustedHeight+'px';
+			}
+		}
+		function showtest(){
+			var out = document.getElementById("text"); 
+			var y=document.getElementsByTagName("textarea");
+			out.innerHTML= ""
+			for(i =0 ;i < y.length;i++){
+				if(y[i]!=="failed "){
+					out.innerHTML += y[i].value + "<br>"; 
+				}
+			}
+		}
+	</script>
+{% else %}
+
+
+{% end if %}
+</body>

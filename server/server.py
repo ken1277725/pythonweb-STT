@@ -16,6 +16,7 @@ server_settings = {
 	"autoreload": True,
     #"login_url": "/accounts/login",
     "debug":True,
+    "template_path":os.path.join(os.path.dirname(__file__),"templates"),
 }
 
 #the handlers list

@@ -30,7 +30,7 @@ def transcribe_file(speech_files):
 	#print (speech_files[0])
 	#transcribe_file_test(speech_files[0])
 	
-	output = "failed"
+	output = []
 	"""Transcribe the given audio file."""
 	speech_client = speech.Client()
 	for speech_file in speech_files:
@@ -45,9 +45,10 @@ def transcribe_file(speech_files):
 				sample_rate_hertz=44100)
 			alternatives = audio_sample.recognize('cmn-Hant-TW')
 			for alternative in alternatives:
-				output+=alternative.transcript
+				output.append(alternative.transcript)
 		except:
 			print("got failed")
+			output.append('failed')
 		#print('Transcript: {}'.format(alternative.transcript))
 	return output
 	
